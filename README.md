@@ -44,6 +44,13 @@ order by porcentagem desc) as consulta
 where porcentagem > 1;
 ```
 
+
 ### Instalar e Executar
-Clone ou baixe o repositório no diretório compartilhado, Vagrant.
-No terminal da máquina virtual, execute `python analise_log.py`.
+* Python 3.5
+* Este repositório contém arquivos que devem ser inseridos na pasta compartilhada do vagrant;
+* É necessário instalar uma VM com as configurações ja definidas, acesse esse [link](https://classroom.udacity.com/nanodegrees/nd004-br/parts/302d2209-30c1-4b9e-8615-2a1f4a5ee7c6/modules/e4147fc0-3658-48bf-8a6c-542fa272d0cd/lessons/5475ecd6-cfdb-4418-85a2-f2583074c08d/concepts/14c72fe3-e3fe-4959-9c4b-467cf5b7c3a0) e siga as instruções para instalar a VM;
+* Em seguinda efetue o download da [base de dados](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip);
+* Com a VM em pleno funcionamento, acesse o diretorio compartilhado e execute o comando  `psql -d news -f newsdata.sql`;
+* Clone ou baixe o repositório no diretório compartilhado, Vagrant.
+* No terminal da máquina virtual, execute `python analise_log.py`.
+
