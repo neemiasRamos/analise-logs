@@ -15,12 +15,11 @@ def artigos_populares(query1):
 	cursor = database.cursor()
 	cursor.execute(query1)
 	resultado = cursor.fetchall()
-
-	texto = "Os três artigos mais populares: \n"
 	for i in range(len(resultado)):
-		texto += "%-35s -- %-10s visualizações\n" %(i[0], i[1])
-	texto += "\n"
-	return texto
+		title = resultado[i][0]
+		views = resultado[i][0]
+		print("%s--%d" % (titulo,views))
+
 	database.close()
 
 def autores_populares(query2):
@@ -28,12 +27,11 @@ def autores_populares(query2):
 	cursor = database.cursor()
 	cursor.execute(query2)
 	resultado = cursor.fetchall()
+	for i in range(len(results)):
+		name=resultado[i][0]
+		views=resultado[i][1]
+		print("%s--%d" % (name,views))
 
-	texto = "Autores com maior popularidade:\n"
-	for i in range(len(resultado)):
-		texto += "%35s -- %-10s visualizações\n" %(i[0], i[1])
-	texto += "\n"
-	return texto
 	database.close()
 
 def porcentagem_erro(query3):
@@ -42,19 +40,19 @@ def porcentagem_erro(query3):
 	cursor.execute(query3)
 	resultado = cursor.fetchall()
 	
-	texto = "Quais dias têm mais de 1% das requisições com erros:\n"
-    for i in range(len(resultado)):
-        texto += "%-35s -- %-10.4s%s erros\n" %(i[0], i[1], '%')
-    texto += "\n"
-    return texto
+	for i in range(len(results)):
+		date=resultado[i][0]
+		err_prc=resultado[i][1]
+		print("%s--%.1f %%" %(date,err_prc))
+
     database.close()
 
 def main():
 	database = connect()
 
-	artigos_populares(query1)
-	autores_populares(query2)
-	porcentagem_erro(query3)
+	print(artigos_populares(query1))
+	print(autores_populares(query2))
+	print(porcentagem_erro(query3))
 
 	database.close()
 
