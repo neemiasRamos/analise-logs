@@ -18,7 +18,8 @@ def artigos_populares(query1):
 	for i in range(len(resultado)):
 		title = resultado[i][0]
 		views = resultado[i][0]
-		print("%s--%d" % (title,views))
+		#print("%s--%d" % (title,views))
+		print("{}--{}".format(title,views))
 
 	database.close()
 
@@ -30,20 +31,21 @@ def autores_populares(query2):
 	for i in range(len(resultado)):
 		name=resultado[i][0]
 		views=resultado[i][1]
-		print("%s--%d" % (name,views))
-
+		#print("%s--%d" % (name,views))
+		print("{}--{}".format(name,views))
+		
 	database.close()
 
 def porcentagem_erro(query3):
 	database = connect()
 	cursor = database.cursor()
 	cursor.execute(query3)
-	resultado = cursor.fetchall()
-	
+	resultado = cursor.fetchall()	
 	for i in range(len(resultado)):
 		date=resultado[i][0]
 		err_prc=resultado[i][1]
-		print("%s--%.1f %%" %(date,err_prc))
+		#print("%s--%.1f %%" %(date,err_prc))
+		print("{}--{0:.1f} %".format(date,err_prc))
 
     database.close()
 
